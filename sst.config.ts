@@ -1,7 +1,5 @@
 /// <reference path="./.sst/platform/config.d.ts" />
-
 import { readdirSync } from "fs";
-
 export default $config({
   app(input) {
     return {
@@ -11,7 +9,10 @@ export default $config({
       providers: {
         aws: {
           region: "us-east-1",
-          profile: input.stage === "production" ? "mesa-production" : "mesa-development",
+          profile:
+            input.stage === "production"
+              ? "mesa-production"
+              : "mesa-development",
         },
       },
     };
