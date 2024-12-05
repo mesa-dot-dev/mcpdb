@@ -6,6 +6,9 @@ import { StrictMode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import TRPCProvider from "./_trpc/provider";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,12 +28,26 @@ export const metadata: Metadata = {
 
 const queryClient = new QueryClient();
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <StrictMode>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <TRPCProvider>{children}</TRPCProvider>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <NuqsAdapter>
+            <TRPCProvider>
+              <SidebarProvider>
+                <AppSidebar />
+
+                {children}
+              </SidebarProvider>
+            </TRPCProvider>
+          </NuqsAdapter>
           <Toaster />
         </body>
       </html>
