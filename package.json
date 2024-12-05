@@ -7,7 +7,11 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "sso": "aws sso login --sso-session=mesa"
+    "sso": "aws sso login --sso-session=mesa",
+    "supa": "supabase start",
+    "db": "drizzle-kit",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -47,12 +51,15 @@
     "clsx": "^2.1.1",
     "cmdk": "1.0.0",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.37.0",
     "embla-carousel-react": "^8.5.1",
     "input-otp": "^1.4.1",
     "lucide-react": "^0.465.0",
     "next": "15.0.3",
     "next-themes": "^0.4.3",
     "nuqs": "^2.2.3",
+    "postgres": "^3.4.5",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-code-block": "^1.1.1",
     "react-day-picker": "8.10.1",
@@ -66,6 +73,7 @@
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "ulid": "^2.3.0",
     "vaul": "^1.1.1",
     "zod": "^3.23.8"
   },
@@ -73,8 +81,11 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "drizzle-kit": "^0.29.1",
     "postcss": "^8",
+    "supabase": "^2.0.0",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
